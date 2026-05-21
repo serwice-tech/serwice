@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SERWICE – Empowering Youth • Inspiring Hope</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #f39908;
+    --sun: #c08d16;
+    --blue: #3A8FE8;
+    --blue-deep: #1A5FC4;
+    --green: #2ECC71;
+    --green-dim: #1a7a43;
+    --bg: #f6fafb;
+    --bg2: #f6fafb;
+    --bg3: #f6fafb;
+    --surface: rgba(255, 255, 255, 0.701);
+    --border: rgba(255,255,255,0.08);
+    --text: #E8EDF5;
+    --muted: #7A8AA0;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    overflow-x: hidden;
+  }
+
+  /* ══ GLASS NAVBAR ══ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(244, 246, 247, 0.5);
+    backdrop-filter: blur(22px) saturate(180%);
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: background 0.4s, box-shadow 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(216, 225, 232, 0.78);
+    box-shadow: 0 8px 40px rgba(240, 241, 241, 0.5);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px;
+    text-decoration: none; 
+  }
+  .logo-img {
+  height: 40px;   
+  width: auto;
+  object-fit: contain;
+}
+  .logo-box {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--blue-deep), var(--green-dim));
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.55rem; color: rgba(255,255,255,0.45);
+    font-weight: 700; letter-spacing: 0.03em;
+    text-align: center; line-height: 1.4; flex-shrink: 0;
+  }
+  .nav-brand { display: flex; flex-direction: column; }
+  .nav-brand strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem; font-weight: 900;
+    background: linear-gradient(100deg, var(--blue) 30%, var(--green));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    line-height: 1;color: #16324f;
+  }
+  .nav-brand span { font-size: 0.6rem; color: var(--muted); letter-spacing: 0.09em; text-transform: uppercase; }
+
+  .nav-links { display: flex; align-items: center; gap: 0.15rem; list-style: none; }
+  .nav-links li a {
+    display: block; text-decoration: none;
+    color: #16324f; font-size: 0.88rem; font-weight: 500;
+    padding: 8px 18px; border-radius: 8px; border: 1px solid transparent;
+    transition: all 0.22s; letter-spacing: 0.01em;
+  }
+  .nav-links li a:hover {
+    color: var(--white); background: rgba(222, 124, 124, 0.07); border-color: rgba(218, 126, 126, 0.1);
+  }
+  .nav-links li a.active {
+    color: var(--sun); background: rgba(116, 213, 145, 0.08); border-color: rgba(130, 221, 132, 0.25);
+  }
+  .nav-links li:last-child a {
+    background: linear-gradient(135deg, var(--blue-deep), var(--blue));
+    color: var(--white) !important; border-color: transparent !important;
+    font-weight: 600; box-shadow: 0 0 20px rgba(102, 157, 215, 0.28);
+  }
+  .nav-links li:last-child a:hover {
+    box-shadow: 0 0 32px rgba(58,143,232,0.5); transform: translateY(-1px);
+  }
+
+  /* ══ HERO ══ */
+  #home {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; padding-top: 68px;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+
+    background:
+    linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("hero.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .hero-bg::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 600px 400px at 85% 15%, rgba(81, 211, 244, 0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 400px at 10% 85%, rgba(46, 204, 201, 0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 400px 300px at 50% 50%, rgba(58,143,232,0.05) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+  }
+  .hero-orb { position: absolute; border-radius: 50%; filter: blur(70px); animation: pulse-orb 9s ease-in-out infinite; }
+  .orb-a { width:500px;height:500px;top:-100px;right:-80px;background:rgba(58,143,232,0.1);animation-delay:0s; }
+  .orb-b { width:400px;height:400px;bottom:-80px;left:-60px;background:rgba(46,204,113,0.08);animation-delay:3.5s; }
+  .orb-c { width:280px;height:280px;top:42%;left:62%;background:rgba(245,166,35,0.07);animation-delay:6s; }
+  @keyframes pulse-orb { 0%,100%{transform:scale(1);opacity:.8} 50%{transform:scale(1.18);opacity:1} }
+
+  .hero-inner {
+    position: relative; max-width: 820px; margin: 0 auto;
+    padding: 5rem 2rem; text-align: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.3);
+    color: var(--sun); padding: 6px 20px; border-radius: 100px;
+    font-size: 0.77rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase;
+    margin-bottom: 2rem; animation: fadeUp 0.7s ease both;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 5rem); font-weight: 900;
+    line-height: 1.08; margin-bottom: 1.75rem;
+    animation: fadeUp 0.7s ease 0.1s both; color: orange;
+  }
+  .hero-title em {
+    font-style: italic;
+    background: linear-gradient(90deg, var(--gold), var(--sun), var(--green));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  /*.hero-sub {
+    font-size: 1.08rem; color: black; line-height: 1.85;
+    max-width: 580px; margin: 0 auto 3rem; font-weight: 300;
+    animation: fadeUp 0.7s ease 0.2s both;
+  }
+  .hero-stats {
+    display: flex; justify-content: center; align-items: center; gap: 2.5rem;
+    animation: fadeUp 0.7s ease 0.3s both; margin-bottom: 3rem;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900;
+    background: linear-gradient(135deg, var(--sun), var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1;
+  }
+  .stat-label { font-size: 0.73rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+  .stat-div { width: 1px; height: 40px; background: var(--border); }*/
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, var(--blue-deep), var(--blue));
+    color: var(--white); text-decoration: none;
+    padding: 14px 34px; border-radius: 12px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: 0 8px 30px rgba(24, 122, 226, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeUp 0.7s ease 0.4s both;
+  }
+  .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(17, 111, 211, 0.55); }
+
+  @keyframes sdot { 0%{top:5px;opacity:1} 100%{top:20px;opacity:0} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(32px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ══ SHARED ══ */
+  section { padding: 110px 2rem; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 10px;
+    color: var(--blue); font-size: 0.74rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 1rem;text-align: center;width: 100%;
+  }
+  .section-label::before {
+    content: ''; display: block; width: 28px; height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--green)); border-radius: 2px; text-align:center;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800;
+    line-height: 1.2; margin-bottom: 1.25rem; color: #16324f; text-align:center;width: 100%;
+  }
+  .reveal { opacity:0; transform:translateY(36px); transition: opacity .75s ease, transform .75s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+  .reveal-delay-1 { transition-delay:.1s; }
+  .reveal-delay-2 { transition-delay:.2s; }
+  .reveal-delay-3 { transition-delay:.3s; }
+  .reveal-delay-4 { transition-delay:.4s; }
+  .divider { height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent); max-width:1200px; margin:0 auto; }
+
+  /* ══ ABOUT ══ */
+  #about { background: var(--bg); }
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+  .about-text p { color:var(--muted); line-height:1.9; font-size:1rem; margin-bottom:1.25rem; }
+  .pillars { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2rem; }
+  .pillar {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:16px; padding:1.25rem;
+    transition:border-color .25s, transform .25s, background .25s;
+  }
+  .pillar:hover { background:rgba(255,255,255,0.06); border-color:rgba(58,143,232,0.3); transform:translateY(-4px); }
+  .pillar-icon { font-size:1.6rem; margin-bottom:.6rem; }
+  .pillar-name { font-weight:700; font-size:.9rem; color: #16324f; margin-bottom:.3rem; }
+  .pillar-desc { font-size:.8rem; color:var(--muted); line-height:1.6; }
+
+  .about-right { display:flex; flex-direction:column; gap:1.25rem; }
+  .about-card {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:20px; padding:2rem; position:relative; overflow:hidden;
+    transition:border-color .3s;
+  }
+  .about-card:hover { border-color:rgba(58,143,232,0.3); }
+  .about-card-accent { position:absolute; top:0;left:0;right:0; height:3px; background:linear-gradient(90deg,var(--blue-deep),var(--blue),var(--green)); }
+  .about-card h3 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color: #16324f; margin-bottom:.7rem; }
+  .about-card p { color:var(--muted); line-height:1.8; font-size:.9rem; }
+  .pledge-card {
+    background:linear-gradient(135deg,rgba(46,204,113,0.08),rgba(58,143,232,0.06));
+    border:1px solid rgba(46,204,113,0.2); border-radius:16px;
+    padding:1.5rem; display:flex; align-items:center; gap:1.25rem;
+  }
+  .pledge-icon { font-size:2.5rem; flex-shrink:0; }
+  .pledge-text strong { display:block; font-size:1.05rem; font-weight:800; color:var(--green); margin-bottom:.25rem; }
+  .pledge-text span { font-size:.82rem; color:var(--muted); }
+
+  /* ══ VISION & MISSION ══ */
+  #vision { background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)),
+    url("Vision Mission.png") center/cover no-repeat; }
+  .vm-intro { text-align:center; max-width:580px; margin:0 auto 3.5rem; }
+  .vm-intro .section-label { justify-content:center; }
+  .vm-intro p { color: #16324f; line-height:1.8; }
+  .vm-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:1.5rem; }
+  .vm-card {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:22px; padding:2.5rem; position:relative; overflow:hidden;
+    transition:transform .3s, border-color .3s;
+  }
+  .vm-card:hover { transform:translateY(-6px); }
+  .vm-card.vision { border-top:3px solid var(--gold); }
+  .vm-card.mission { border-top:3px solid var(--green); }
+  .vm-glow { position:absolute; top:0;left:0;right:0; height:120px; pointer-events:none; }
+  .vision .vm-glow { background:radial-gradient(ellipse at 50% 0%,rgb(239, 242, 255) 0%,transparent 70%); }
+  .mission .vm-glow { background:radial-gradient(ellipse at 50% 0%,rgb(240, 241, 255) 0%,transparent 70%); }
+  .vm-icon { font-size:2.6rem; margin-bottom:1.25rem; display:block; }
+  .vm-card h3 { font-family:'Playfair Display',serif; font-size:1.55rem; font-weight:800; margin-bottom:1rem; }
+  .vision h3 { color:var(--sun); }
+  .mission h3 { color:var(--green); }
+  .vm-card p { color: #16324f; line-height:1.9; font-size:.95rem; }
+  .values-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+  .value-chip {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:14px; padding:1.5rem 1rem; text-align:center;
+    transition:all .25s; cursor:default;
+  }
+  .value-chip:hover { background:rgba(46, 55, 244, 0.06); border-color:rgba(35, 63, 245, 0.35); transform:translateY(-4px); }
+  .value-chip .vi { font-size:1.7rem; margin-bottom:.6rem; }
+  .value-chip .vn { font-weight:700; font-size:.85rem; color: #16324f; }
+
+  /* ══ LMS ══ */
+  #lms { background:var(--bg3); }
+  .lms-header { text-align:center; max-width:620px; margin:0 auto 4rem; }
+  .lms-header .section-label { justify-content:center; }
+  .lms-header p { color:var(--muted); line-height:1.8; }
+  .courses-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-bottom:3rem; }
+  .course-card {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:18px; overflow:hidden;
+    transition:transform .3s,border-color .3s,box-shadow .3s;
+  }
+  .course-card:hover { transform:translateY(-8px); border-color:rgba(58,143,232,0.35); box-shadow:0 20px 60px rgba(0,0,0,0.4); }
+  .course-banner { height:100px; display:flex; align-items:center; justify-content:center; font-size:2.5rem; }
+  .c1{background:linear-gradient(135deg,#81a5f1,#183fbd)}
+  .c2{background:linear-gradient(135deg,#7dd89e,#0d3d1e)}
+  .c3{background:linear-gradient(135deg,#d7be98,#3d2500)}
+  .c4{background:linear-gradient(135deg,#ddae8b,#2e1808)}
+  .c5{background:linear-gradient(135deg,#a594d3,#1a0f3d)}
+  .c6{background:linear-gradient(135deg,#e78dae,#3d0618)}
+  .course-body { padding:1.35rem; }
+  .course-tag {
+    display:inline-block; background:rgba(58,143,232,0.12); color:var(--blue);
+    font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+    padding:3px 10px; border-radius:100px; margin-bottom:.65rem;
+  }
+  .course-name { font-weight:700; font-size:.95rem; margin-bottom:.45rem; color: #16324f; }
+  .course-desc { font-size:.8rem; color:var(--muted); line-height:1.6; }
+
+  .lms-cta {
+    text-align:center;
+    background:linear-gradient(135deg,rgba(26,95,196,0.14),rgba(46,204,113,0.07));
+    border:1px solid rgba(58,143,232,0.2); border-radius:22px; padding:3rem;
+  }
+  .lms-cta h3 { font-family:'Playfair Display',serif; font-size:1.7rem; font-weight:800; color: #16324f; margin-bottom:.75rem; }
+  .lms-cta p { color:var(--muted); margin-bottom:2rem; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.8; }
+  .enroll-btn {
+    display:inline-flex; align-items:center; gap:10px;
+    background:linear-gradient(135deg,var(--blue-deep),var(--blue));
+    color:var(--white); text-decoration:none;
+    padding:14px 34px; border-radius:12px; font-weight:700; font-size:.95rem;
+    box-shadow:0 8px 28px rgba(58,143,232,0.35);
+    transition:transform .2s,box-shadow .2s; margin-bottom:2rem;
+  }
+  .enroll-btn:hover { transform:translateY(-3px); box-shadow:0 14px 40px rgba(58,143,232,0.55); }
+  .sector-tags { display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; }
+  .sector-tag { background:rgba(255,255,255,0.05); border:1px solid var(--border); border-radius:8px; padding:6px 14px; font-size:.8rem; color:var(--muted); }
+
+  /* ══ CONTACT ══ */
+  #contact { background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)),
+    url("Contact.png") center/cover no-repeat; }
+  .contact-wrap { display:flex; justify-content:center; align-items:center; text-align:left; }
+  .contact-left p { color:black; max-width: 700px; margin: 0 auto; text-align:center; }
+  .contact-details { display:flex; flex-direction:column; gap:1rem; align-items:center; }
+  .cd {
+    display:flex; align-items:center; gap:1rem;
+    padding:1.25rem; background: linear-gradient(135deg, #ffffff, #ffffff); border:1px solid var(--border);
+    border-radius:14px; transition:border-color .25s,transform .25s;width: 100%;
+    max-width: 500px;
+  }
+  .cd:hover { border-color:rgba(58,143,232,0.3); transform:translateX(4px); }
+  .cd-icon {
+    width:42px;height:42px; background:linear-gradient(135deg,var(--blue-deep),var(--blue));
+    border-radius:11px; display:flex;align-items:center;justify-content:center;
+    font-size:1.1rem; flex-shrink:0;
+  }
+  .cd-text strong { display:block; font-weight:700; font-size:.85rem; color: #16324f; margin-bottom:.2rem; }
+  .cd-text span { font-size:.85rem; color:#16324f; }
+
+  .contact-right { background:var(--surface); border:1px solid var(--border); border-radius:24px; padding:2.5rem; }
+  .contact-right h3 { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:800; color:var(--white); margin-bottom:.5rem; }
+  .contact-right .sub { color:var(--muted); font-size:.88rem; margin-bottom:2rem; }
+  .interest-grid { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
+  .interest-item {
+    background:rgba(7, 7, 7, 0.03); border:1px solid var(--border);
+    border-radius:12px; padding:1rem; cursor:pointer;
+    transition:all .2s; text-align:center;
+  }
+  .interest-item:hover { background:rgba(58,143,232,0.1); border-color:rgba(1, 10, 19, 0.4); }
+  .interest-item.selected { background:rgba(58,143,232,0.15); border-color:var(--blue); }
+  .interest-icon { font-size:1.4rem; margin-bottom:.4rem; }
+  .interest-name { font-size:.82rem; font-weight:600; color:var(--text); }
+  .contact-note {
+    margin-top:1.5rem; padding:1rem 1.25rem;
+    background:rgba(14, 21, 17, 0.06); border:1px solid rgba(46,204,113,0.18);
+    border-radius:12px; font-size:.84rem; color:var(--muted); line-height:1.6;
+  }
+  .contact-note strong { color:var(--green); }
+
+  /* ══ FOOTER ══ */
+  footer { background:#131414; border-top:1px solid var(--border); padding:1.5rem 2rem; text-align:center; color:var(--muted); font-size:.83rem; }
+  footer .footer-inner { max-width:1200px; margin:0 auto; }
+  footer .tagline { font-family:'Playfair Display',serif; font-style:italic; color:var(--sun); font-size:1rem; margin-bottom:.75rem; }
+
+  /* ══ RESPONSIVE ══ */
+  @media(max-width:900px){
+    .about-grid,.vm-grid,.contact-wrap{grid-template-columns:1fr;gap:2rem;}
+    .values-row{grid-template-columns:1fr 1fr;}
+    .courses-grid{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+    .hero-stats{gap:1.5rem;}
+  }
+  @media(max-width:600px){
+    .courses-grid{grid-template-columns:1fr;}
+    .pillars{grid-template-columns:1fr;}
+    .interest-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <img src="logo.png" alt="Logo" class="logo-img">
+      <div class="nav-brand">
+        <strong>SERWICE</strong>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#vision">Vision &amp; Mission</a></li>
+      <li><a href="#lms">LMS</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-orb orb-a"></div>
+    <div class="hero-orb orb-b"></div>
+    <div class="hero-orb orb-c"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-badge">✦ Building India's Skilled Workforce</div>
+    <h1 class="hero-title">Empowering Every<br><em>Rural Youth</em><br>in India</h1>
+    <!-- <p class="hero-sub">SERWICE trains young aspirants with industry-ready skills, opens doors to meaningful employment, and kindles the entrepreneurial spirit — giving platform for every household to lead a dignified livelihood.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">10K+</div>
+        <div class="stat-label">Youth Trained</div>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat-item">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Industry Sectors</div>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat-item">
+        <div class="stat-num">85%</div>
+        <div class="stat-label">Placement Rate</div>
+      </div>
+    </div>-->
+    <a href="#about" class="hero-cta">Discover Our Work →</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">Transforming Lives<br>Through Skills</h2>
+        <div class="pledge-card">
+          <div class="pledge-icon">🏆</div>
+          <div class="pledge-text">
+            <strong>1 Skilled Job Per Rural Household</strong>
+            <span>Our core pledge — a promise to rural India</span>
+          </div>
+        </div>
+        <div class="pillars">
+          <div class="pillar reveal reveal-delay-1"><div class="pillar-icon">🎓</div><div class="pillar-name">Vocational Training</div><div class="pillar-desc">Structured skill courses aligned with national standards</div></div>
+          <div class="pillar reveal reveal-delay-2"><div class="pillar-icon">💼</div><div class="pillar-name">Job Placement</div><div class="pillar-desc">Industry partnerships connecting graduates to employers</div></div>
+          <div class="pillar reveal reveal-delay-3"><div class="pillar-icon">🌱</div><div class="pillar-name">Entrepreneurship</div><div class="pillar-desc">Mentoring the next generation of rural entrepreneurs</div></div>
+          <div class="pillar reveal reveal-delay-4"><div class="pillar-icon">🤝</div><div class="pillar-name">Community Growth</div><div class="pillar-desc">Building stronger communities through collective progress</div></div>
+        </div>
+      </div>
+      <div class="about-right reveal reveal-delay-1">
+        <div class="about-card">
+          <div class="about-card-accent"></div>
+          <h3>Our Commitment to Rural India</h3>
+          <p>We work on the ground partnering with local communities, government bodies, and corporates to create an ecosystem where skills translate directly into livelihoods and self-reliance.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-accent"></div>
+          <h3>Inspiring the Next Generation</h3>
+          <p>Every course we deliver is designed not just to teach a skill, but to awaken the aspirant within — nurturing confidence, discipline, and the drive to lead, innovate, and lift others up.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VISION & MISSION -->
+<section id="vision">
+  <div class="section-inner">
+    <div class="vm-intro reveal">
+      <div class="section-label">Our Purpose</div>
+      <h2 class="section-title">Vision &amp; Mission</h2>
+      <p>Two pillars that guide every decision, every step, every life we touch.</p>
+    </div>
+    <div class="vm-grid">
+      <div class="vm-card vision reveal">
+        <div class="vm-glow"></div>
+        <span class="vm-icon">🌅</span>
+        <h3>Our Vision</h3>
+        <p>To enable India where every rural youth aspirant leads a self-reliant, dignified, and fulfilling life — where skills are the great equaliser, and no young person's potential is left untapped due to geography or circumstance. We envision a nation powered by a billion skilled hands and inspired minds.</p>
+      </div>
+      <div class="vm-card mission reveal reveal-delay-1">
+        <div class="vm-glow"></div>
+        <span class="vm-icon">🎯</span>
+        <h3>Our Mission</h3>
+        <p>To deliver accessible, high-quality skill training across industry sectors to youth in rural India; to connect every trained individual with meaningful employment or entrepreneurial opportunity; and to ensure at least one skilled earner in every rural household — sparking a generational transformation.</p>
+      </div>
+    </div>
+    <div class="values-row">
+      <div class="value-chip reveal"><div class="vi">⚡</div><div class="vn">Empowerment</div></div>
+      <div class="value-chip reveal reveal-delay-1"><div class="vi">🌟</div><div class="vn">Aspiration</div></div>
+      <div class="value-chip reveal reveal-delay-2"><div class="vi">🤲</div><div class="vn">Inclusivity</div></div>
+      <div class="value-chip reveal reveal-delay-3"><div class="vi">🔥</div><div class="vn">Impact</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LMS -->
+<section id="lms">
+  <div class="section-inner">
+    <div class="lms-header reveal">
+      <div class="section-label">Learn &amp; Grow</div>
+      <h2 class="section-title">Learning Management System</h2>
+      <p>Our platform delivers placements linked courses across diverse industries.</p>
+    </div>
+    <div class="courses-grid">
+      <div class="course-card reveal"><div class="course-banner c1">🏗️</div><div class="course-body"><div class="course-tag">Construction</div><div class="course-name">Civil &amp; Infrastructure Skills</div><div class="course-desc">Masonry, plumbing, electrical wiring, and construction safety for building a stronger India.</div></div></div>
+      <div class="course-card reveal reveal-delay-1"><div class="course-banner c2">🌾</div><div class="course-body"><div class="course-tag">Agriculture</div><div class="course-name">Modern Farming &amp; Agri-Tech</div><div class="course-desc">Precision farming, organic practices, and agri-entrepreneurship for the rural economy.</div></div></div>
+      <div class="course-card reveal reveal-delay-2"><div class="course-banner c3">💻</div><div class="course-body"><div class="course-tag">Technology</div><div class="course-name">Digital Literacy &amp; IT Skills</div><div class="course-desc">Computer basics to web development and data entry — opening doors to the digital economy.</div></div></div>
+      <div class="course-card reveal reveal-delay-1"><div class="course-banner c4">🍽️</div><div class="course-body"><div class="course-tag">Hospitality</div><div class="course-name">Food, Travel &amp; Tourism</div><div class="course-desc">Culinary arts, front-office management, and customer service for a growing sector.</div></div></div>
+      <div class="course-card reveal reveal-delay-2"><div class="course-banner c5">🏥</div><div class="course-body"><div class="course-tag">Healthcare</div><div class="course-name">Community Health Workers</div><div class="course-desc">First-aid, general nursing assistance, and rural health outreach skills.</div></div></div>
+      <div class="course-card reveal reveal-delay-3"><div class="course-banner c6">🪡</div><div class="course-body"><div class="course-tag">Apparel</div><div class="course-name">Textiles &amp; Fashion Design</div><div class="course-desc">Tailoring, garment making, and fashion entrepreneurship for women and youth.</div></div></div>
+    </div>
+    <div class="lms-cta reveal">
+      <h3>Ready to Begin Your Journey?</h3>
+      <p>Enroll today and take the first step toward a fulfilling career.</p>
+      <a href="#contact" class="enroll-btn">Enroll Now →</a>
+      <div class="sector-tags">
+        <span class="sector-tag">🏗️ Construction</span>
+        <span class="sector-tag">🌾 Agriculture</span>
+        <span class="sector-tag">💻 Technology</span>
+        <span class="sector-tag">🏥 Healthcare</span>
+        <span class="sector-tag">🍽️ Hospitality</span>
+        <span class="sector-tag">🪡 Textiles</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-wrap">
+      <div class="contact-left reveal">
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">Let's Build a Skilled India Together</h2>
+        <!--<p>Whether you're a student looking to enroll, a corporate wishing to partner, or someone who wants to support our mission — we'd love to hear from you.</p>-->
+        <br>
+        <div class="contact-details">
+          <div class="cd"><div class="cd-icon">📍</div><div class="cd-text"><strong>Location</strong><span>Tenali, Amaravati, Andhra Pradesh, India</span></div></div>
+          <div class="cd"><div class="cd-icon">📞</div><div class="cd-text"><strong>Phone</strong><span>+91 9381555013</span></div></div>
+          <div class="cd"><div class="cd-icon">✉️</div><div class="cd-text"><strong>Email</strong><span>seriwiceindia@gmail.com</span></div></div>
+          <div class="cd"><div class="cd-icon">🕐</div><div class="cd-text"><strong>Working Hours</strong><span>Mon – Sat, 9 AM – 6 PM</span></div></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="tagline">Empowering Youth &      Inspiring Hope</div>
+    <p>   All Rights Reserved   © 2026 SERWICE </p>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  // Glass scroll effect + active link
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 30);
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+  });
+
+  // Smooth scroll on nav click
+  navLinks.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Contact interest picker
+  function selectInterest(el) {
+    document.querySelectorAll('.interest-item').forEach(i => i.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+</script>
+</body>
+</html>
