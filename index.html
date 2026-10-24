@@ -230,109 +230,195 @@
   .divider { height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent); max-width:1200px; margin:0 auto; }
 
 
-/* ══ OUR IMPACT ══ */
+
+/* ══ SERWICE AT A GLANCE ══ */
 #impact {
-  background: linear-gradient(
-    180deg,
-    #f6fafb 0%,
-    #eef6fb 100%
-  );
-  padding: 90px 2rem;
+  background: #f6f9f4;
+  padding: 90px 2rem 45px;
 }
 .impact-header {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 3rem;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
 }
-.impact-header .section-label {
-  justify-content: center;
+.impact-header .section-label,
+.programs-header .section-label {
+  justify-content: flex-start;
+  text-align: left;
+}
+.impact-header .section-title,
+.programs-header .section-title {
+  text-align: left;
+  margin-bottom: 1rem;
+  color: #0b3b68;
 }
 .impact-intro {
   color: #52677d;
   font-size: 1rem;
   line-height: 1.8;
-  max-width: 650px;
-  margin: 0 auto;
+  max-width: 750px;
 }
-.impact-grid {
+/* Statistics cards */
+.stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1.25rem;
+  margin-bottom: 5rem;
 }
-.impact-card {
+.stat-card {
+  grid-column: span 2;
+  min-width: 0;
+  min-height: 190px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.85);
-  border: 1px solid #e1ebf2;
-  border-radius: 18px;
-  padding: 2rem 1.4rem;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(22, 50, 79, 0.05);
+  border: 1px solid #dce7d8;
+  border-radius: 20px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-.impact-card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 16px 35px rgba(22, 50, 79, 0.12);
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(11, 59, 104, 0.08);
 }
-.impact-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 1.2rem;
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  background: linear-gradient(
-    135deg,
-    #e4f0ff,
-    #e3f8eb
-  );
+/* Second row: two equally sized cards */
+.stat-wide {
+  grid-column: span 3;
 }
-.impact-card h3 {
+.stat-number {
   font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  color: #16324f;
-  margin-bottom: 0.8rem;
+  font-size: clamp(3.5rem, 5vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
 }
-.impact-card p {
-  color: #64778b;
-  font-size: 0.85rem;
-  line-height: 1.8;
+.blue-number {
+  color: #078bd7;
 }
-.impact-bottom {
-  margin-top: 2rem;
-  padding: 1.3rem;
-  border-radius: 14px;
-  background: rgba(58, 143, 232, 0.07);
-  border: 1px solid rgba(58, 143, 232, 0.15);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.7rem;
-  text-align: center;
+
+.green-number {
+  color: #38972a;
 }
-.impact-bottom span {
-  font-size: 1.3rem;
-}
-.impact-bottom p {
-  color: #16324f;
+
+.stat-label-text {
+  color: #0b3b68;
+  font-size: clamp(1rem, 1.7vw, 1.4rem);
   font-weight: 600;
+  line-height: 1.5;
+}
+/* Two programs */
+.programs-header {
+  margin-bottom: 2rem;
+}
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+.program-card {
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid #dce7d8;
+  border-radius: 20px;
+  padding: 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.program-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(11, 59, 104, 0.08);
+}
+.program-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+.ai-title {
+  color: #078bd7;
+}
+.prompt-title {
+  color: #38972a;
+}
+.program-meta {
+  color: #0b3b68;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+.program-list {
+  padding-left: 1.4rem;
+  color: #163e67;
+}
+.program-list li {
+  padding-left: 0.15rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+.program-list li::marker {
+  color: #078bd7;
+}
+/* Annual report footer */
+.impact-report-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  color: #607b98;
   font-size: 0.95rem;
 }
-/* Responsive layout */
-@media (max-width: 900px) {
-  .impact-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.impact-report-footer img {
+  width: 54px;
+  height: 48px;
+  object-fit: contain;
 }
-@media (max-width: 600px) {
+/* Tablet */
+@media (max-width: 900px) {
   #impact {
-    padding: 70px 1.25rem;
+    padding: 75px 1.5rem 35px;
   }
-  .impact-grid {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: 3.5rem;
+  }
+  .stat-card,
+  .stat-wide {
+    grid-column: span 1;
+  }
+  .programs-grid {
     grid-template-columns: 1fr;
   }
-  .impact-card {
-    padding: 1.75rem 1.25rem;
+}
+/* Mobile */
+@media (max-width: 600px) {
+  #impact {
+    padding: 65px 1.1rem 30px;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .stat-card,
+  .stat-wide {
+    grid-column: span 1;
+    min-height: 145px;
+    padding: 1.5rem;
+  }
+  .stat-number {
+    font-size: 3.5rem;
+  }
+  .program-card {
+    padding: 1.5rem;
+  }
+  .program-list li {
+    font-size: 0.9rem;
+  }
+  .impact-report-footer {
+    align-items: flex-start;
+    font-size: 0.8rem;
   }
 }
 
@@ -562,65 +648,98 @@
     <a href="#about" class="hero-cta">Discover Our Work →</a>
   </div>
 </section>
-
-<!-- OUR IMPACT SECTION -->
+  
+<!-- SERWICE AT A GLANCE -->
 <section id="impact">
   <div class="section-inner">
+    <!-- PART 1: AT A GLANCE -->
     <div class="impact-header reveal">
       <div class="section-label">Our Impact</div>
-      <h2 class="section-title">
-        Creating Opportunities,<br>
-        Transforming Futures
-      </h2>
+      <h2 class="section-title">SERWICE at a Glance</h2>
       <p class="impact-intro">
-        We empower rural youth through industry-relevant skills,
-        career opportunities, and entrepreneurship to build a
-        stronger and more self-reliant India.
+        A snapshot of our training achievements and our commitment
+        to building a skilled, future-ready workforce.
       </p>
     </div>
-    <div class="impact-grid">
-      <div class="impact-card reveal">
-        <div class="impact-icon">🎓</div>
-        <h3>Skill Development</h3>
-        <p>
-          Equipping rural youth with practical, industry-ready
-          skills to prepare them for emerging career opportunities.
-        </p>
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-number blue-number">376</div>
+        <div class="stat-label-text">Candidates Trained</div>
       </div>
-      <div class="impact-card reveal reveal-delay-1">
-        <div class="impact-icon">💼</div>
-        <h3>Employment Opportunities</h3>
-        <p>
-          Connecting trained candidates with employers and
-          supporting their journey towards meaningful employment.
-        </p>
+      <div class="stat-card reveal reveal-delay-1">
+        <div class="stat-number blue-number">12</div>
+        <div class="stat-label-text">Batches Delivered</div>
       </div>
-      <div class="impact-card reveal reveal-delay-2">
-        <div class="impact-icon">🌱</div>
-        <h3>Entrepreneurship</h3>
-        <p>
-          Encouraging young people to develop entrepreneurial
-          skills and create sustainable livelihood opportunities.
-        </p>
+      <div class="stat-card reveal reveal-delay-2">
+        <div class="stat-number blue-number">2</div>
+        <div class="stat-label-text">Programs</div>
       </div>
-      <div class="impact-card reveal reveal-delay-3">
-        <div class="impact-icon">🏡</div>
-        <h3>Rural Empowerment</h3>
-        <p>
-          Working towards our pledge of at least one skilled
-          earner in every rural household.
-        </p>
+      <div class="stat-card stat-wide reveal">
+        <div class="stat-number green-number">190</div>
+        <div class="stat-label-text">
+          Candidates Trained in 2024 · 6 Batches
+        </div>
+      </div>
+      <div class="stat-card stat-wide reveal reveal-delay-1">
+        <div class="stat-number green-number">186</div>
+        <div class="stat-label-text">
+          Candidates Trained in 2025 · 6 Batches
+        </div>
       </div>
     </div>
-    <div class="impact-bottom reveal">
-      <span>✨</span>
-      <p>
-        Empowering youth. Strengthening communities.
-        Building a skilled India.
+    <!-- PART 2: TWO PROGRAMS -->
+    <div class="programs-header reveal">
+      <div class="section-label">Our Training Programs</div>
+      <h2 class="section-title">Two Programs</h2>
+      <p class="impact-intro">
+        Equipping candidates with essential AI knowledge and
+        practical skills for an evolving digital workplace.
       </p>
+    </div>
+    <div class="programs-grid">
+      <!-- AI FUNDAMENTALS -->
+      <div class="program-card reveal">
+        <h3 class="program-title ai-title">AI Fundamentals</h3>
+        <div class="program-meta">
+          196 candidates · 6 batches
+        </div>
+        <ul class="program-list">
+          <li>What AI, machine learning and generative AI are</li>
+          <li>Key terminology and how models learn</li>
+          <li>Popular AI tools and where they are used</li>
+          <li>AI for productivity, content and data tasks</li>
+          <li>Limits, bias and hallucinations</li>
+          <li>Ethics, privacy and responsible use</li>
+          <li>Hands-on practice and a final project</li>
+        </ul>
+      </div>
+      <!-- PROMPT ENGINEERING -->
+      <div class="program-card reveal reveal-delay-1">
+        <h3 class="program-title prompt-title">
+          Prompt Engineering
+        </h3>
+        <div class="program-meta">
+          180 candidates · 6 batches
+        </div>
+        <ul class="program-list">
+          <li>How large language models read prompts</li>
+          <li>Writing clear, structured prompts</li>
+          <li>Roles, context and output formats</li>
+          <li>Few-shot prompting, reasoning and iteration</li>
+          <li>Prompts for writing, research and analysis</li>
+          <li>Reusable prompt templates and workflows</li>
+          <li>Hands-on practice and a final project</li>
+        </ul>
+      </div>
+    </div>
+    <!-- REPORT FOOTER -->
+    <div class="impact-report-footer">
+      <img src="logo.png" alt="SERWICE logo">
+      <span>SERWICE · Annual Training Report 2024–2025</span>
     </div>
   </div>
 </section>
+
 
 <!-- ABOUT -->
 <section id="about">
