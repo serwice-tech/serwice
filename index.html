@@ -229,6 +229,113 @@
   .reveal-delay-4 { transition-delay:.4s; }
   .divider { height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent); max-width:1200px; margin:0 auto; }
 
+
+/* ══ OUR IMPACT ══ */
+#impact {
+  background: linear-gradient(
+    180deg,
+    #f6fafb 0%,
+    #eef6fb 100%
+  );
+  padding: 90px 2rem;
+}
+.impact-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3rem;
+}
+.impact-header .section-label {
+  justify-content: center;
+}
+.impact-intro {
+  color: #52677d;
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 650px;
+  margin: 0 auto;
+}
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+.impact-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #e1ebf2;
+  border-radius: 18px;
+  padding: 2rem 1.4rem;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(22, 50, 79, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.impact-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 16px 35px rgba(22, 50, 79, 0.12);
+}
+.impact-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.2rem;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: linear-gradient(
+    135deg,
+    #e4f0ff,
+    #e3f8eb
+  );
+}
+.impact-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: #16324f;
+  margin-bottom: 0.8rem;
+}
+.impact-card p {
+  color: #64778b;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+.impact-bottom {
+  margin-top: 2rem;
+  padding: 1.3rem;
+  border-radius: 14px;
+  background: rgba(58, 143, 232, 0.07);
+  border: 1px solid rgba(58, 143, 232, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+  text-align: center;
+}
+.impact-bottom span {
+  font-size: 1.3rem;
+}
+.impact-bottom p {
+  color: #16324f;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+/* Responsive layout */
+@media (max-width: 900px) {
+  .impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  #impact {
+    padding: 70px 1.25rem;
+  }
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+  .impact-card {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
   /* ══ ABOUT ══ */
   #about { background: var(--bg); }
   .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
@@ -453,6 +560,65 @@
       </div>
     </div>-->
     <a href="#about" class="hero-cta">Discover Our Work →</a>
+  </div>
+</section>
+
+<!-- OUR IMPACT SECTION -->
+<section id="impact">
+  <div class="section-inner">
+    <div class="impact-header reveal">
+      <div class="section-label">Our Impact</div>
+      <h2 class="section-title">
+        Creating Opportunities,<br>
+        Transforming Futures
+      </h2>
+      <p class="impact-intro">
+        We empower rural youth through industry-relevant skills,
+        career opportunities, and entrepreneurship to build a
+        stronger and more self-reliant India.
+      </p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card reveal">
+        <div class="impact-icon">🎓</div>
+        <h3>Skill Development</h3>
+        <p>
+          Equipping rural youth with practical, industry-ready
+          skills to prepare them for emerging career opportunities.
+        </p>
+      </div>
+      <div class="impact-card reveal reveal-delay-1">
+        <div class="impact-icon">💼</div>
+        <h3>Employment Opportunities</h3>
+        <p>
+          Connecting trained candidates with employers and
+          supporting their journey towards meaningful employment.
+        </p>
+      </div>
+      <div class="impact-card reveal reveal-delay-2">
+        <div class="impact-icon">🌱</div>
+        <h3>Entrepreneurship</h3>
+        <p>
+          Encouraging young people to develop entrepreneurial
+          skills and create sustainable livelihood opportunities.
+        </p>
+      </div>
+      <div class="impact-card reveal reveal-delay-3">
+        <div class="impact-icon">🏡</div>
+        <h3>Rural Empowerment</h3>
+        <p>
+          Working towards our pledge of at least one skilled
+          earner in every rural household.
+        </p>
+      </div>
+    </div>
+    <div class="impact-bottom reveal">
+      <span>✨</span>
+      <p>
+        Empowering youth. Strengthening communities.
+        Building a skilled India.
+      </p>
+    </div>
   </div>
 </section>
 
